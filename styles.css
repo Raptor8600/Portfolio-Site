@@ -1122,3 +1122,68 @@ section {
     background-color: rgba(255, 255, 255, 0.3);
     margin: 0 0.25rem;
 }
+
+/* Articles Section Styles */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.articles-grid .experience-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.articles-grid .experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(10, 35, 66, 0.1);
+}
+
+.articles-grid .experience-card .exp-body {
+    flex-grow: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Articles Carousel (Matches Projects) */
+.articles-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-secondary) transparent;
+}
+
+.articles-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+
+.articles-carousel::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 10px;
+}
+
+.articles-carousel .experience-card {
+    flex: 0 0 85%;
+    min-width: 300px;
+    scroll-snap-align: start;
+}
+
+@media (min-width: 992px) {
+    .articles-carousel .experience-card {
+        flex: 0 0 calc(50% - 1rem);
+    }
+}

@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addProjBtn = document.getElementById('add-proj-btn');
     const addAwardBtn = document.getElementById('add-award-btn');
     const addVolunteerBtn = document.getElementById('add-volunteer-btn');
+    const addArticleBtn = document.getElementById('add-article-btn');
 
     // Hidden File Inputs
     const imageInput = document.createElement('input');
@@ -536,6 +537,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    if (addArticleBtn) {
+        addArticleBtn.addEventListener('click', () => {
+            const grid = document.querySelector('.articles-grid');
+            const newCard = document.createElement('article');
+            newCard.className = 'experience-card';
+            newCard.innerHTML = `
+                <div class="exp-header">
+                    <div>
+                        <h3 data-editable="true">[Article Title]</h3>
+                        <h4 class="company" data-editable="true">[Publication Name]</h4>
+                    </div>
+                    <div class="exp-meta" data-editable="true">
+                        [Date]<br>
+                        <a href="#" class="social-link" style="color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                            🌐 [Read Full Article]
+                        </a>
+                    </div>
+                </div>
+                <div class="exp-body" data-editable="true">
+                    <p>[Brief description of the article and its key takeaways.]</p>
+                </div>
+                <div class="tech-stack" data-editable="true">
+                    <span>Tag1</span>
+                    <span>Tag2</span>
+                </div>
+            `;
+            grid.appendChild(newCard);
+            newCard.querySelectorAll('[data-editable="true"]').forEach(el => el.setAttribute('contenteditable', 'true'));
+            addDeleteButtons();
+            newCard.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+
     function handleDragStart(e) { e.target.classList.add('dragging'); }
     function handleDragEnd(e) { e.target.classList.remove('dragging'); }
     function handleDragOver(e) {
@@ -546,7 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function enableDragAndDrop() {
-        const containers = document.querySelectorAll('.projects-carousel, .awards-grid, .volunteer-grid, .experience-grid');
+        const containers = document.querySelectorAll('.projects-carousel, .awards-grid, .volunteer-grid, .experience-grid, .articles-grid');
         containers.forEach(container => {
             container.addEventListener('dragover', handleDragOver);
             container.querySelectorAll('.experience-card').forEach(card => {
@@ -559,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function disableDragAndDrop() {
-        const containers = document.querySelectorAll('.projects-carousel, .awards-grid, .volunteer-grid, .experience-grid');
+        const containers = document.querySelectorAll('.projects-carousel, .awards-grid, .volunteer-grid, .experience-grid, .articles-grid');
         containers.forEach(container => {
             container.removeEventListener('dragover', handleDragOver);
         });
@@ -677,4 +711,42 @@ document.addEventListener('keydown', (e) => {
                 break;
         }
     }
+
+    // --- ARTICLES CAROUSEL DOTS ---
+    function initArticlesCarousel() {
+        const carousel = document.querySelector('.articles-carousel');
+        const dotsContainer = document.getElementById('articles-dots');
+        if (!carousel || !dotsContainer) return;
+
+        const cards = carousel.querySelectorAll('.experience-card');
+        if (cards.length === 0) return;
+
+        dotsContainer.innerHTML = '';
+        cards.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(carousel).gap || '0');
+                carousel.scrollTo({
+                    left: index * cardWidth,
+                    behavior: 'smooth'
+                });
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        carousel.addEventListener('scroll', () => {
+            const scrollLeft = carousel.scrollLeft;
+            const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(carousel).gap || '0');
+            let activeIndex = Math.round(scrollLeft / cardWidth);
+            if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) {
+                activeIndex = cards.length - 1;
+            }
+            dotsContainer.querySelectorAll('.dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        });
+    }
+    initArticlesCarousel();
 });
