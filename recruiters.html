@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Recruiters | Mary Scott</title>
+    <meta name="description" content="Quick overview for recruiters and hiring managers.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css?v=1.1">
+    <style>
+        /* ── Inlined from styles.css for self-contained preview ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --color-primary: #0A2342;
+            --color-primary-light: #183659;
+            --color-secondary: #C5A059;
+            --color-secondary-hover: #D6B26F;
+            --color-bg-white: #FFFFFF;
+            --color-bg-light: #F8F9FA;
+            --color-text-main: #2C3E50;
+            --color-text-light: #586776;
+            --color-text-white: #FFFFFF;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --transition-standard: all 0.3s ease;
+            --transition-apple: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-standard);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--color-primary);
+            color: var(--color-text-white);
+            border: 2px solid var(--color-primary);
+            border-radius: 4px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: var(--transition-standard);
+        }
+
+        .btn:hover {
+            background-color: var(--color-primary-light);
+            border-color: var(--color-primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background-color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            color: var(--color-primary);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--color-secondary-hover);
+            color: var(--color-primary);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a:not(.btn) {
+            font-weight: 500;
+            color: var(--color-text-main);
+            position: relative;
+        }
+
+        .nav-links a:not(.btn)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--color-secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:not(.btn):hover::after,
+        .nav-links a:not(.btn).active::after {
+            width: 100%;
+        }
+
+        .nav-links a:not(.btn).active {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .nav-links .nav-btn-resume {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.55rem 1.2rem;
+            border: 2px solid var(--color-secondary);
+            border-radius: 8px;
+            background-color: var(--color-secondary);
+            color: var(--color-primary) !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(198, 163, 107, 0.2);
+        }
+
+        .nav-links .nav-btn-resume:hover {
+            background-color: transparent;
+            color: var(--color-secondary) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(198, 163, 107, 0.3);
+        }
+
+        .nav-links .nav-btn-recruiters {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(198, 163, 107, 0.4);
+            border-radius: 8px;
+            color: var(--color-secondary) !important;
+            font-weight: 500 !important;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links .nav-btn-recruiters:hover {
+            border-color: var(--color-secondary);
+            background-color: rgba(198, 163, 107, 0.1);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 1080px) {
+            .nav-links:not(.active) {
+                display: none !important;
+            }
+        }
+
+        .nav-links .nav-btn-resume::after,
+        .nav-links .nav-btn-recruiters::after {
+            display: none;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── End inlined styles ── */
+
+        :root {
+            --recruiter-bg: #F8FAFC;
+            --recruiter-card-bg: #FFFFFF;
+            --recruiter-accent: #C5A059;
+            --recruiter-text: #1E293B;
+            --recruiter-text-light: #64748B;
+            --recruiter-border: #E2E8F0;
+        }
+
+        body {
+            background-color: var(--recruiter-bg);
+            color: var(--recruiter-text);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Pattern Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(197, 160, 89, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(10, 35, 66, 0.03) 0px, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.8);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--recruiter-border);
+        }
+
+        .nav-links a:not(.btn) {
+            color: var(--recruiter-text) !important;
+            font-weight: 500;
+        }
+
+        .nav-links a:not(.btn).active {
+            color: var(--recruiter-accent) !important;
+        }
+
+        .recruiter-container {
+            max-width: 1000px;
+            margin: 160px auto 80px;
+            padding: 0 24px;
+        }
+
+        /* Stylish Hero Banner with Accent */
+        .hero-banner {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 80px 40px;
+            background: rgba(16, 30, 52, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-radius: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.22);
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 10px 40px -15px rgba(0, 0, 0, 0.4),
+                inset 0 0 60px rgba(212, 175, 55, 0.04);
+        }
+
+        .hero-banner::before {
+            content: "";
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-banner::after {
+            content: "";
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(10, 35, 66, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-banner .content-relative {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.12);
+            color: #D4AF37;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+        }
+
+        .hero-badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: #D4AF37;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        .hero-banner h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero-banner p {
+            font-size: 1.4rem;
+            color: rgba(226, 232, 240, 0.75);
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Modern Section Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1.5fr 1fr;
+            }
+        }
+
+        .card {
+            background: var(--recruiter-card-bg);
+            border: 1px solid var(--recruiter-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .section-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--recruiter-accent);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: #0A2342;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        /* Project Items */
+        .project-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--recruiter-border);
+            transition: padding 0.3s ease;
+        }
+
+        .project-row:last-child {
+            border-bottom: none;
+        }
+
+        .project-row:hover {
+            padding-left: 8px;
+        }
+
+        .project-info h3 {
+            font-size: 1.125rem;
+            color: var(--recruiter-text);
+            margin-bottom: 4px;
+        }
+
+        .project-link {
+            color: var(--recruiter-accent);
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
+            margin-left: 32px;
+            white-space: nowrap;
+        }
+
+        /* Skills/Tags */
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #F1F5F9;
+            color: #475569;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .tag:hover {
+            background: #FFFFFF;
+            border-color: var(--recruiter-accent);
+            color: var(--recruiter-accent);
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: #0A2342;
+            color: white;
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%);
+        }
+
+        .contact-box h2 {
+            color: white;
+            margin-bottom: 32px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-premium {
+            padding: 14px 28px;
+            border-radius: 14px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-gold-fill {
+            background: var(--recruiter-accent);
+            color: #0A2342;
+        }
+
+        .btn-gold-fill:hover {
+            background: #D4B170;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(197, 160, 89, 0.2);
+        }
+
+        .btn-white-outline {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .btn-white-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: white;
+        }
+
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            color: var(--recruiter-text-light);
+            font-size: 0.875rem;
+        }
+
+        /* Strengths & Bullets */
+        .bullets {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0;
+            font-size: 0.9rem;
+            color: var(--recruiter-text-light);
+            line-height: 1.6;
+        }
+
+        .bullets li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+        }
+
+        .bullets li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--recruiter-accent);
+            font-weight: 700;
+        }
+
+        .targeting-line {
+            margin-top: 24px;
+            padding: 16px;
+            background: rgba(197, 160, 89, 0.05);
+            border-left: 3px solid var(--recruiter-accent);
+            border-radius: 0 12px 12px 0;
+            font-weight: 500;
+            color: #0A2342;
+            font-size: 1rem;
+        }
+
+        .side-section {
+            margin-bottom: 32px;
+        }
+
+        /* ── NEXUS RESEARCH SPOTLIGHT ─────────────────────────── */
+        .nexus-spotlight {
+            background: #0A2342;
+            border-radius: 28px;
+            padding: 48px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .nexus-spotlight::before {
+            content: "";
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .nexus-spotlight::after {
+            content: "";
+            position: absolute;
+            bottom: -40px;
+            left: 40%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .nexus-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nexus-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .nexus-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nexus-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--recruiter-accent);
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            flex-shrink: 0;
+        }
+
+        .nexus-brand-text .series-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--recruiter-accent);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .nexus-brand-text h2,
+        .nexus-spotlight h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: white !important;
+            margin-bottom: 0 !important;
+            letter-spacing: -0.02em;
+        }
+
+        .nexus-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            background: var(--recruiter-accent);
+            color: #0A2342;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .nexus-cta:hover {
+            background: #D4B170;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(197, 160, 89, 0.25);
+        }
+
+        .nexus-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+            max-width: 680px;
+            margin-bottom: 28px;
+        }
+
+        /* Featured report card inside spotlight */
+        .featured-report {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 24px 28px;
+            margin-bottom: 20px;
+        }
+
+        .featured-report-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .featured-report .report-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .featured-report .report-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .featured-report .report-summary {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.65;
+        }
+
+        .report-rating {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 4px 12px;
+            border-radius: 6px;
+            background: rgba(26, 107, 58, 0.25);
+            color: #6EE7A0;
+            border: 1px solid rgba(26, 107, 58, 0.4);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nexus-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .nexus-stat {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .nexus-stat .stat-num {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--recruiter-accent);
+            line-height: 1;
+            display: block;
+        }
+
+        .nexus-stat .stat-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 4px;
+            display: block;
+        }
+
+        .nexus-view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            margin-top: 20px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .nexus-view-all:hover {
+            color: var(--recruiter-accent);
+            border-color: var(--recruiter-accent);
+        }
+    </style>
+    <link rel="stylesheet" href="portfolio-theme.css">
+</head>
+
+<body class="portfolio-dark recruiter-theme">
+    <!-- Background Accent Layer (Matching index.html with top-left-center to bottom-right diagonal accent) -->
+    <div class="bg-accent-layer">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="recruiter-hero-background"></div>
+        <div class="geometric-accent recruiter-geometric"></div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo">Mary <span>Scott</span></a>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#articles">Articles</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li><a href="index.html#awards">Awards</a></li>
+                <li><a href="index.html#volunteer">Community</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li class="nav-btn-group">
+                    <a href="nexus.html" class="nav-btn-research">Research ↗</a>
+                    <a href="recruiters.html" class="active nav-btn-recruiters">For Recruiters</a>
+                    <a href="resume.pdf" target="_blank" class="nav-btn-resume">Resume</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="recruiter-container">
+        <header class="hero-banner reveal">
+            <div class="content-relative">
+                <span class="hero-badge">EXECUTIVE SUMMARY</span>
+                <h1>Recruiter Brief</h1>
+                <p>An executive summary of my professional trajectory, tactical expertise, and high-impact analytical work.</p>
+            </div>
+        </header>
+
+        <!-- ── NEXUS RESEARCH SPOTLIGHT ─────────────────────── -->
+        <div class="nexus-spotlight reveal">
+            <div class="nexus-inner">
+                <div class="nexus-header">
+                    <div class="nexus-brand">
+                        <div class="nexus-icon">NX</div>
+                        <div class="nexus-brand-text">
+                            <span class="series-label">INDEPENDENT EQUITY RESEARCH SERIES</span>
+                            <h2>Nexus Research</h2>
+                        </div>
+                    </div>
+                    <a href="nexus.html" class="nexus-cta">
+                        Browse All Reports <i data-lucide="arrow-up-right" style="width:16px;"></i>
+                    </a>
+                </div>
+
+                <p class="nexus-description">
+                    A systematic, driver-based equity research series applying a four-driver framework (Revenue, Demand,
+                    Margin, Structural Shift) to identify variant views and mispriced risk in U.S. public equities. Each
+                    report surfaces the prevailing market consensus being challenged, catalysts with explicit timelines,
+                    scenario analyses with falsification criteria, and a formal valuation reference.
+                </p>
+
+                <!-- Featured reports: Kenvue, Hormuz, IonQ -->
+                <div class="featured-report-grid" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 24px;">
+                    <!-- Report 1: Strait of Hormuz -->
+                    <div class="featured-report" style="margin-bottom: 0;">
+                        <div class="featured-report-top">
+                            <div>
+                                <div class="report-title">Running on Empty — Strait of Hormuz Duration Shock</div>
+                                <div class="report-meta">Macro / Geopolitics · Jun 8, 2026 · Thematic Note</div>
+                            </div>
+                            <span class="report-rating" style="background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3);">WATCH · Duration Risk</span>
+                        </div>
+                        <p class="report-summary">
+                            The Strait of Hormuz disruption is framed as a supply shock, but the binding constraint is system buffer duration rather than absolute oil availability. Cushing inventories at ~22.4M bbls and SPR drawdowns limit backstop capacity, while time mispricing creates structural transport cost risk.
+                        </p>
+                    </div>
+
+                    <!-- Report 2: IonQ -->
+                    <div class="featured-report" style="margin-bottom: 0;">
+                        <div class="featured-report-top">
+                            <div>
+                                <div class="report-title">IonQ, Inc. (IONQ) — Watch Thesis</div>
+                                <div class="report-meta">NYSE · Quantum Computing · May 28, 2026 · Moonshot Assessment</div>
+                            </div>
+                            <span class="report-rating" style="background: rgba(234, 179, 8, 0.15); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.3);">WATCH · $89 Target</span>
+                        </div>
+                        <p class="report-summary">
+                            Evaluates IonQ's 83x NTM valuation against an aggressive acquisition spree ($1.8B SkyWater foundry). Weighs $151M Q1 operating cash burn against a $470M government backlog and 23.6-quarter cash runway.
+                        </p>
+                    </div>
+
+                    <!-- Report 3: Kenvue -->
+                    <div class="featured-report" style="margin-bottom: 0;">
+                        <div class="featured-report-top">
+                            <div>
+                                <div class="report-title">Kenvue Inc. (KVUE) — Directional Thesis</div>
+                                <div class="report-meta">NYSE · Consumer Defensive · May 11, 2026 · High Conviction</div>
+                            </div>
+                            <span class="report-rating">BUY · +30% Target</span>
+                        </div>
+                        <p class="report-summary">
+                            Argues the market is conflating cyclical volume weakness with permanent structural impairment — mispricing KVUE's margin driver. Supply chain automation (60% of capex) expanding margins toward 20%+, with Q1 2026 showing 80bps sequential volume improvement.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="nexus-stats">
+                    <div class="nexus-stat">
+                        <span class="stat-num" id="stat-total">4</span>
+                        <span class="stat-label">REPORTS PUBLISHED</span>
+                    </div>
+                    <div class="nexus-stat">
+                        <span class="stat-num" id="stat-tickers">4</span>
+                        <span class="stat-label">COMPANIES COVERED</span>
+                    </div>
+                    <div class="nexus-stat">
+                        <span class="stat-num" id="stat-latest">Jun 2026</span>
+                        <span class="stat-label">LATEST REPORT</span>
+                    </div>
+                </div>
+
+                <a href="nexus.html" class="nexus-view-all">
+                    View full research database <i data-lucide="arrow-right"
+                        style="width:14px;display:inline-block;vertical-align:middle;"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- ── MAIN GRID ─────────────────────────────────────── -->
+        <main class="grid-layout">
+            <!-- Left Column: Summary & Projects -->
+            <div class="main-column">
+                <section class="card reveal" style="margin-bottom: 32px;">
+                    <span class="section-title">VALUE PROPOSITION</span>
+                    <h2>Professional Summary</h2>
+                    <p style="color: var(--recruiter-text-light); line-height: 1.8; font-size: 1.05rem;">
+                        Finance professional who builds her own frameworks when existing tools don't fit. Publishes independent equity research through Nexus Research — primary sources, original analysis, one report at a time. Comfortable working across conventional and pre-commercial companies where standard multiples break down. Targeting equity research, trading, or analytical finance roles.
+                    </p>
+                    <div class="targeting-line">
+                        Currently pursuing roles in trading, equity research, or analytical finance where structured
+                        reasoning, market intuition, and tool‑building are valued.
+                    </div>
+                    <div style="margin-top: 32px;">
+                        <a href="resume.pdf" target="_blank" class="btn btn-gold">
+                            <i data-lucide="file-text" style="width: 18px;"></i> Download Full CV
+                        </a>
+                    </div>
+                </section>
+
+                <section class="card reveal">
+                    <span class="section-title">Case Studies</span>
+                    <h2>Analytical Projects</h2>
+                    <div class="project-list">
+                        <div class="project-row">
+                            <div class="project-info">
+                                <h3>Running on Empty — Strait of Hormuz Duration Shock</h3>
+                                <p style="font-size: 0.875rem; color: var(--recruiter-text-light);">Nexus Research · WATCH · Thematic Note</p>
+                                <ul class="bullets">
+                                    <li>System buffer duration vs. supply constraint analysis modeling Cushing &amp; SPR drawdowns</li>
+                                    <li>Macro liquidity, hedging layer exhaustion, and transport cost repricing model</li>
+                                </ul>
+                            </div>
+                            <a href="https://view.officeapps.live.com/op/view.aspx?src=https://raptor8600.github.io/Portfolio-Site/Memo_Strait_of_Hormuz.docx" target="_blank" class="project-link">
+                                View Report <i data-lucide="arrow-up-right" style="width: 16px;"></i>
+                            </a>
+                        </div>
+                        <div class="project-row">
+                            <div class="project-info">
+                                <h3>IonQ, Inc. (IONQ) — Moonshot Assessment</h3>
+                                <p style="font-size: 0.875rem; color: var(--recruiter-text-light);">Nexus Research · WATCH · Moonshot Assessment</p>
+                                <ul class="bullets">
+                                    <li>Evaluated 83x NTM valuation against 8 tech acquisitions and $1.8B SkyWater foundry</li>
+                                    <li>Modeled $151M cash burn against $470M government backlog and 23.6-quarter runway</li>
+                                </ul>
+                            </div>
+                            <a href="https://view.officeapps.live.com/op/view.aspx?src=https://raptor8600.github.io/Portfolio-Site/Memo_IonQ_WATCH.docx" target="_blank" class="project-link">
+                                View Report <i data-lucide="arrow-up-right" style="width: 16px;"></i>
+                            </a>
+                        </div>
+                        <div class="project-row">
+                            <div class="project-info">
+                                <h3>Costco Wholesale (COST) — Neutral/Hold</h3>
+                                <p style="font-size: 0.875rem; color: var(--recruiter-text-light);">Nexus Research · HOLD/NEUTRAL · Valuation</p>
+                                <ul class="bullets">
+                                    <li>Evaluated maturing warehouse density &amp; renewal rates against 53x P/E valuation</li>
+                                    <li>Modeled growth normalization risks across 2-4 earnings cycles</li>
+                                </ul>
+                            </div>
+                            <a href="https://view.officeapps.live.com/op/view.aspx?src=https://raptor8600.github.io/Portfolio-Site/Memo_Neutral_Hold__HOLD__COST.docx" target="_blank" class="project-link">
+                                View Report <i data-lucide="arrow-up-right" style="width: 16px;"></i>
+                            </a>
+                        </div>
+                        <div class="project-row">
+                            <div class="project-info">
+                                <h3>KVUE — Directional Thesis</h3>
+                                <p style="font-size: 0.875rem; color: var(--recruiter-text-light);">Nexus Research · BUY · High Conviction</p>
+                                <ul class="bullets">
+                                    <li>Identified variant view vs. consensus on margin drivers and volume trend</li>
+                                    <li>Full four-driver framework, scenario analysis, and valuation reference</li>
+                                </ul>
+                            </div>
+                            <a href="https://view.officeapps.live.com/op/view.aspx?src=https://raptor8600.github.io/Portfolio-Site/Memo_KVUE_BUY_Directional_Thesis.docx" target="_blank" class="project-link">
+                                View Report <i data-lucide="arrow-up-right" style="width: 16px;"></i>
+                            </a>
+                        </div>
+                        <div class="project-row">
+                            <div class="project-info">
+                                <h3>Target (TGT) 20% Drop</h3>
+                                <p style="font-size: 0.875rem; color: var(--recruiter-text-light);">LinkedIn Article · Deep-dive Value Analysis</p>
+                                <ul class="bullets">
+                                    <li>Identified key drivers behind the selloff and modeled recovery scenarios</li>
+                                    <li>Synthesized findings into a concise institutional-style brief</li>
+                                </ul>
+                            </div>
+                            <a href="https://www.linkedin.com/pulse/targets-tgt-20-drop-value-investors-opportunity-red-flag-mary-scott-ppn4c/"
+                                target="_blank" class="project-link">
+                                View Case <i data-lucide="arrow-up-right" style="width: 16px;"></i>
+                            </a>
+                        </div>
+                        <div class="project-row">
+                            <div class="project-info">
+                                <h3>Yum! Brands' Transformation</h3>
+                                <p style="font-size: 0.875rem; color: var(--recruiter-text-light);">Digital Strategy &amp; Growth Summary</p>
+                                <ul class="bullets">
+                                    <li>Analyzed digital integration across KFC, Taco Bell, and Pizza Hut</li>
+                                    <li>Evaluated margin impact of tech-driven operational efficiency</li>
+                                </ul>
+                            </div>
+                            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7313703713284464641/?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7313703713284464641%29"
+                                target="_blank" class="project-link">
+                                View Case <i data-lucide="arrow-up-right" style="width: 16px;"></i>
+                            </a>
+                        </div>
+                        <div class="project-row" style="border-bottom: none;">
+                            <div class="project-info">
+                                <h3>Disney Strategic Turnaround</h3>
+                                <p style="font-size: 0.875rem; color: var(--recruiter-text-light);">Corporate Strategy Performance Analysis</p>
+                                <ul class="bullets">
+                                    <li>Deconstructed segment-level performance in streaming vs. parks</li>
+                                    <li>Mapped long-term strategic shifts in content monetization</li>
+                                </ul>
+                            </div>
+                            <a href="https://lnkd.in/gEEi_sSJ" target="_blank" class="project-link">
+                                View Case <i data-lucide="arrow-up-right" style="width: 16px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Skills & Contact -->
+            <div class="side-column">
+                <section class="card reveal side-section">
+                    <span class="section-title">Tactical Skills</span>
+                    <h2>Core Competency</h2>
+                    <div class="skills-wrap" style="margin-bottom: 24px;">
+                        <span class="skill-pill">Financial Modeling</span>
+                        <span class="skill-pill">Market Analysis</span>
+                        <span class="skill-pill">Equity Research</span>
+                        <span class="skill-pill">Investor Relations</span>
+                        <span class="skill-pill">Macro Outlooks</span>
+                        <span class="skill-pill">FactSet / CapIQ</span>
+                        <span class="skill-pill">Strategic Writing</span>
+                        <span class="skill-pill">Excel Analytics</span>
+                    </div>
+
+                    <span class="section-title" style="font-size: 0.75rem;">Tools & Platforms</span>
+                    <div class="skills-wrap">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">Excel (Advanced)</span>
+                        <span class="skill-pill">Power BI</span>
+                        <span class="skill-pill">SQL (Beginner)</span>
+                        <span class="skill-pill">GitHub</span>
+                        <span class="skill-pill">FRED</span>
+                        <span class="skill-pill">SEC EDGAR</span>
+                        <span class="skill-pill">Koyfin</span>
+                    </div>
+                </section>
+
+                <section class="card reveal side-section">
+                    <span class="section-title">Enduring Value</span>
+                    <h2>Key Strengths</h2>
+                    <ul class="bullets">
+                        <li>Turning complex systems into intuitive models</li>
+                        <li>Fast, structured decision-making</li>
+                        <li>Clear written communication for technical and non-technical audiences</li>
+                    </ul>
+                </section>
+
+                <div class="contact-box reveal">
+                    <span class="section-title" style="color: rgba(197, 160, 89, 0.8);">Get in Touch</span>
+                    <h2>Direct Contact</h2>
+                    <div class="button-group">
+                        <a href="mailto:marygzscott8600@gmail.com" class="btn-premium btn-gold-fill">
+                            <i data-lucide="mail" style="width: 18px;"></i> Email
+                        </a>
+                        <a href="https://www.linkedin.com/in/mary-g-scott/" target="_blank"
+                            class="btn-premium btn-white-outline">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="reveal">
+            <p>© 2026 Mary Scott. Designed for Professional Excellence.</p>
+        </footer>
+    </div>
+
+    <script src="reports-data.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // ── Populate Nexus stats from core series ──────────────────────────
+        if (typeof NEXUS_REPORTS !== 'undefined' && NEXUS_REPORTS.length) {
+            const coreSeries = NEXUS_REPORTS.filter(r => ['hormuz-2026-06', 'ionq-2026-05', 'cost-2026-05', 'kvue-2026-05'].includes(r.id));
+            document.getElementById('stat-total').textContent = coreSeries.length || 4;
+            document.getElementById('stat-tickers').textContent = coreSeries.length || 4;
+            document.getElementById('stat-latest').textContent = 'Jun 2026';
+        }
+
+        // ── Scroll reveal ──────────────────────────────────────────────────
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Research | Mary Scott</title>
+  <meta name="description"
+    content="Independent equity research by Mary Scott. Directional theses, sector analysis, and investment memos.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="styles.css?v=1.1">
+
+  <style>
+    :root {
+      --nx-bg: #E4EFF7;
+      --nx-paper: #F8FAFC;
+      --nx-ink: #0F172A;
+      --nx-ink-mid: #334155;
+      --nx-ink-light: #64748B;
+      --nx-rule: #CBD5E1;
+      --nx-gold: #B8860B;
+      --nx-gold-light: rgba(184, 134, 11, 0.08);
+      --nx-buy: #166534;
+      --nx-buy-bg: #DCFCE7;
+      --nx-sell: #991B1B;
+      --nx-sell-bg: #FEE2E2;
+      --nx-hold: #1E40AF;
+      --nx-hold-bg: #DBEAFE;
+      --nx-watch: #9A3412;
+      --nx-watch-bg: #FFEDD5;
+      --nx-thesis: #6B21A8;
+      --nx-thesis-bg: #F3E8FF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--nx-bg);
+      color: var(--nx-ink);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ────────────────────────────────── */
+    .navbar {
+      background: rgba(248, 250, 252, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--nx-rule);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .navbar .container {
+      padding: 0 24px;
+    }
+
+    .navbar-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--nx-ink);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      color: var(--nx-ink-mid);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links a:hover {
+      background: var(--nx-gold-light);
+      color: var(--nx-gold);
+    }
+
+    .nav-links a.active {
+      color: var(--nx-gold);
+      font-weight: 600;
+    }
+
+    .nav-links .nav-btn-resume {
+      background: var(--nx-ink);
+      color: #fff !important;
+      border-radius: 8px;
+      padding: 7px 14px;
+    }
+
+    .nav-links .nav-btn-resume:hover {
+      background: var(--nx-gold);
+    }
+
+    .nav-links .nav-btn-recruiters {
+      border: 1px solid var(--nx-rule);
+      color: var(--nx-ink-mid) !important;
+    }
+
+    .nav-links .nav-btn-recruiters:hover {
+      border-color: var(--nx-gold);
+      color: var(--nx-gold) !important;
+    }
+
+    /* ── PAGE SHELL ──────────────────────────── */
+    .page-shell {
+      max-width: 1100px;
+      margin: 130px auto 80px;
+      padding: 0 24px;
+    }
+
+    /* ── MASTHEAD ────────────────────────────── */
+    .masthead {
+      border-bottom: 2px solid var(--nx-ink);
+      padding-bottom: 20px;
+      margin-bottom: 32px;
+    }
+
+    .masthead-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand-block .series-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--nx-gold);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .brand-block h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--nx-ink);
+    }
+
+    .brand-block .tagline {
+      font-size: 0.82rem;
+      color: var(--nx-ink-light);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .masthead-meta {
+      text-align: right;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--nx-ink-light);
+      line-height: 1.8;
+    }
+
+    .masthead-meta strong {
+      color: var(--nx-ink-mid);
+    }
+
+    /* ── SEARCH BAR ──────────────────────────── */
+    .search-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .search-wrapper svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--nx-ink-light);
+      pointer-events: none;
+    }
+
+    #search-input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1px solid var(--nx-rule);
+      border-radius: 8px;
+      background: var(--nx-paper);
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.875rem;
+      color: var(--nx-ink);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    #search-input:focus {
+      border-color: var(--nx-gold);
+      box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+    }
+
+    #search-input::placeholder {
+      color: var(--nx-ink-light);
+    }
+
+    /* ── FILTER PILLS ────────────────────────── */
+    .filter-row {
+      display: flex;
+      gap: 16px;
+      row-gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--nx-rule);
+    }
+
+    .filter-wrapper {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: nowrap;
+    }
+
+    .filter-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--nx-ink-light);
+      margin-right: 4px;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-explanation {
+      font-size: 0.76rem;
+      color: var(--nx-ink-mid);
+      background: rgba(184, 134, 11, 0.04);
+      border-left: 2px solid var(--nx-gold);
+      padding: 6px 14px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 24px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      display: none;
+      line-height: 1.5;
+    }
+
+    .filter-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 100px;
+      border: 1px solid var(--nx-rule);
+      background: var(--nx-paper);
+      color: var(--nx-ink-mid);
+      cursor: pointer;
+      transition: all 0.18s;
+      letter-spacing: 0.04em;
+      user-select: none;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--nx-gold);
+      color: var(--nx-gold);
+    }
+
+    .filter-pill.active {
+      background: var(--nx-ink);
+      color: #fff;
+      border-color: var(--nx-ink);
+    }
+
+    .filter-pill[data-val="BUY"].active {
+      background: var(--nx-buy);
+      border-color: var(--nx-buy);
+    }
+
+    .filter-pill[data-val="SELL"].active {
+      background: var(--nx-sell);
+      border-color: var(--nx-sell);
+    }
+
+    .filter-pill[data-val="HOLD/NEUTRAL"].active {
+      background: var(--nx-hold);
+      border-color: var(--nx-hold);
+    }
+
+    .filter-pill[data-val="WATCH"].active {
+      background: var(--nx-watch);
+      border-color: var(--nx-watch);
+    }
+
+    .filter-pill[data-val="THESIS CHECK"].active {
+      background: var(--nx-thesis);
+      border-color: var(--nx-thesis);
+    }
+
+    .date-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 100px;
+      border: 1px solid var(--nx-rule);
+      background: var(--nx-bg);
+      color: var(--nx-ink-mid);
+      outline: none;
+      transition: all 0.18s;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .date-pill:hover,
+    .date-pill:focus {
+      border-color: var(--nx-gold);
+      color: var(--nx-gold);
+    }
+
+    /* ── RESULTS HEADER ──────────────────────── */
+    .results-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .results-count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--nx-ink-light);
+    }
+
+    .results-count strong {
+      color: var(--nx-ink);
+    }
+
+    .sort-select {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--nx-ink-mid);
+      border: 1px solid var(--nx-rule);
+      background: var(--nx-paper);
+      border-radius: 6px;
+      padding: 5px 10px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    /* ── TABLE HEADER ────────────────────────── */
+    .filings-table-wrap {
+      background: var(--nx-paper);
+      border: 1px solid var(--nx-rule);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .table-head {
+      display: grid;
+      grid-template-columns: 90px 1fr 130px 110px 190px 80px;
+      gap: 16px;
+      background: var(--nx-bg);
+      border-bottom: 1px solid var(--nx-rule);
+      padding: 10px 20px;
+    }
+
+    .th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--nx-ink-light);
+    }
+
+    /* ── FILING ROWS ─────────────────────────── */
+    #filings-list {
+      list-style: none;
+    }
+
+    .filing-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 130px 110px 190px 80px;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--nx-rule);
+      transition: background 0.15s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .filing-row:last-child {
+      border-bottom: none;
+    }
+
+    .filing-row:hover {
+      background: var(--nx-gold-light);
+    }
+
+    .filing-row .col-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--nx-ink-light);
+    }
+
+    .filing-row .col-title h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--nx-ink);
+      margin-bottom: 3px;
+      line-height: 1.3;
+    }
+
+    .filing-row .col-title .subtitle {
+      font-size: 0.75rem;
+      color: var(--nx-ink-light);
+    }
+
+    .filing-row .col-ticker {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--nx-ink);
+      letter-spacing: 0.04em;
+    }
+
+    .filing-row .col-ticker .exchange {
+      display: block;
+      font-size: 0.62rem;
+      color: var(--nx-ink-light);
+      font-weight: 400;
+      margin-top: 1px;
+    }
+
+    /* Rating badges */
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .rating-BUY {
+      background: var(--nx-buy-bg);
+      color: var(--nx-buy);
+    }
+
+    .rating-SELL {
+      background: var(--nx-sell-bg);
+      color: var(--nx-sell);
+    }
+
+    .rating-HOLD {
+      background: var(--nx-hold-bg);
+      color: var(--nx-hold);
+    }
+
+    .rating-WATCH {
+      background: var(--nx-watch-bg);
+      color: var(--nx-watch);
+    }
+
+    .rating-THESIS {
+      background: var(--nx-thesis-bg);
+      color: var(--nx-thesis);
+    }
+
+    /* Type badge */
+    .type-badge {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--nx-bg);
+      color: var(--nx-ink-mid);
+      border: 1px solid var(--nx-rule);
+      white-space: nowrap;
+    }
+
+    /* View link */
+    .col-action {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .view-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--nx-gold);
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(184, 134, 11, 0.3);
+      background: rgba(184, 134, 11, 0.04);
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+
+    .view-link:hover {
+      background: var(--nx-gold);
+      color: #fff;
+      border-color: var(--nx-gold);
+    }
+
+    .view-link svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* No results */
+    #no-results {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    #no-results .icon {
+      color: var(--nx-rule);
+      margin-bottom: 16px;
+    }
+
+    #no-results h3 {
+      color: var(--nx-ink-mid);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    #no-results p {
+      font-size: 0.82rem;
+      color: var(--nx-ink-light);
+    }
+
+    /* ── EXPANDED ROW DETAIL ─────────────────── */
+    .filing-detail {
+      display: none;
+      padding: 20px 20px 24px 20px;
+      background: rgba(184, 134, 11, 0.03);
+      border-top: 1px solid rgba(184, 134, 11, 0.15);
+    }
+
+    .filing-detail.open {
+      display: block;
+    }
+
+    .detail-inner {
+      max-width: 700px;
+    }
+
+    .detail-inner p {
+      font-size: 0.84rem;
+      color: var(--nx-ink-mid);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+
+    .detail-meta {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--nx-rule);
+    }
+
+    .detail-meta-item {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--nx-ink-light);
+    }
+
+    .detail-meta-item strong {
+      display: block;
+      color: var(--nx-ink-mid);
+      font-size: 0.7rem;
+      margin-bottom: 2px;
+    }
+
+    /* ── ABOUT STRIP ─────────────────────────── */
+    .about-strip {
+      margin-top: 40px;
+      padding: 24px 28px;
+      background: var(--nx-paper);
+      border: 1px solid var(--nx-rule);
+      border-left: 3px solid var(--nx-gold);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .about-strip .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--nx-gold);
+      margin-bottom: 8px;
+    }
+
+    .about-strip p {
+      font-size: 0.82rem;
+      color: var(--nx-ink-mid);
+      line-height: 1.7;
+    }
+
+    .about-strip .disclaimer {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: var(--nx-ink-light);
+      font-style: italic;
+    }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 48px 24px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--nx-ink-light);
+      border-top: 1px solid var(--nx-rule);
+      margin-top: 60px;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width: 768px) {
+      .table-head {
+        display: none;
+      }
+
+      .filing-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 16px;
+      }
+
+      .col-action {
+        justify-content: flex-start;
+        margin-top: 4px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .brand-block h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="portfolio-theme.css">
+</head>
+
+<body class="portfolio-dark nexus-theme">
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container navbar-content">
+      <a href="index.html" class="logo">Mary <span>Scott</span></a>
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" x2="20" y1="6" y2="6" />
+          <line x1="4" x2="20" y1="12" y2="12" />
+          <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#articles">Articles</a></li>
+        <li><a href="index.html#experience">Experience</a></li>
+        <li><a href="index.html#awards">Awards</a></li>
+        <li><a href="index.html#volunteer">Community</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li class="nav-btn-group">
+          <a href="nexus.html" class="active nav-btn-research">Research ↗</a>
+          <a href="recruiters.html" class="nav-btn-recruiters">For Recruiters</a>
+          <a href="resume.pdf" target="_blank" class="nav-btn-resume">Resume</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-shell">
+
+    <!-- Masthead -->
+    <div class="masthead">
+      <div class="masthead-top">
+        <div class="brand-block">
+          <span class="series-label">Independent Equity Analysis</span>
+          <h1>Nexus Research</h1>
+          <p class="tagline">A systematic, driver-based framework for identifying variant views and mispriced risk.</p>
+        </div>
+        <div class="masthead-meta">
+          <div><strong>Analyst</strong> Mary Scott</div>
+          <div><strong>Coverage</strong> U.S. Public Equities</div>
+          <div><strong>Framework</strong> Driver-Based / Directional</div>
+          <div><strong>Status</strong> Active Series</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-row">
+      <div class="search-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input type="text" id="search-input" placeholder="Search by company, ticker, or keyword…" autocomplete="off">
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-row">
+      <!-- Category (Report vs Article) Filters -->
+      <div class="filter-wrapper">
+        <span class="filter-label">Category:</span>
+        <div class="filter-group" id="format-filters">
+          <span class="filter-pill active" data-filter="format" data-val="ALL">ALL</span>
+          <span class="filter-pill" data-filter="format" data-val="Report">Report</span>
+          <span class="filter-pill" data-filter="format" data-val="Article">Article</span>
+        </div>
+      </div>
+
+      <!-- Rating Filters -->
+      <div class="filter-wrapper" style="margin-left: 12px;">
+        <span class="filter-label">Rating:</span>
+        <div class="filter-group" id="rating-filters">
+          <span class="filter-pill active" data-filter="rating" data-val="ALL">ALL</span>
+          <span class="filter-pill" data-filter="rating" data-val="BUY">BUY</span>
+          <span class="filter-pill" data-filter="rating" data-val="HOLD/NEUTRAL">HOLD/NEUTRAL</span>
+          <span class="filter-pill" data-filter="rating" data-val="WATCH">WATCH</span>
+          <span class="filter-pill" data-filter="rating" data-val="SELL">SELL</span>
+          <span class="filter-pill" data-filter="rating" data-val="THESIS CHECK">THESIS CHECK</span>
+        </div>
+      </div>
+
+      <!-- Timeframe Filters -->
+      <div class="filter-wrapper" style="margin-left: 12px;">
+        <span class="filter-label">Date:</span>
+        <div class="filter-group" id="year-filters">
+          <span class="filter-pill active" data-filter="year" data-val="ALL">ALL</span>
+          <span class="filter-pill" data-filter="year" data-val="30D">30D</span>
+          <span class="filter-pill" data-filter="year" data-val="6M">6M</span>
+          <span class="filter-pill" data-filter="year" data-val="1Y">1Y</span>
+          <span class="filter-pill" data-filter="year" data-val="CUSTOM">CUSTOM</span>
+          <div id="custom-date-container" style="display: none; align-items: center; gap: 6px; margin-left: 2px;">
+            <input type="date" id="date-from" class="date-pill" aria-label="From Date">
+            <span
+              style="font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: var(--nx-ink-light);">to</span>
+            <input type="date" id="date-to" class="date-pill" aria-label="To Date">
+          </div>
+        </div>
+      </div>
+
+      <!-- Type Filters -->
+      <div class="filter-wrapper" style="margin-left: 12px;">
+        <span class="filter-label">Type:</span>
+        <div class="filter-group" id="type-filters">
+          <span class="filter-pill active" data-filter="type" data-val="ALL">ALL</span>
+          <span class="filter-pill" data-filter="type" data-val="Deep Dive / Sector Primer">Deep Dive / Sector
+            Primer</span>
+          <span class="filter-pill" data-filter="type" data-val="Ecosystem Map">Ecosystem Map</span>
+          <span class="filter-pill" data-filter="type" data-val="Thematic Note">Thematic Note</span>
+          <span class="filter-pill" data-filter="type" data-val="Stock Memo / Quick Pitch">Stock Memo / Quick
+            Pitch</span>
+          <span class="filter-pill" data-filter="type" data-val="Catalyst Tracker">Catalyst Tracker</span>
+          <span class="filter-pill" data-filter="type" data-val="Post-Mortem / Re-Underwrite">Post-Mortem /
+            Re-Underwrite</span>
+          <span class="filter-pill" data-filter="type" data-val="Moonshot Assessment">Moonshot Assessment</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Muted dynamic filter explanations -->
+    <div id="filter-explanation" class="filter-explanation"></div>
+
+    <!-- Results Header -->
+    <div class="results-header">
+      <div class="results-count"><strong id="count-display">1</strong> filing(s) found</div>
+      <select class="sort-select" id="sort-select">
+        <option value="date-desc">Newest First</option>
+        <option value="date-asc">Oldest First</option>
+        <option value="ticker-asc">Ticker A–Z</option>
+      </select>
+    </div>
+
+    <!-- Filings Table -->
+    <div class="filings-table-wrap">
+      <div class="table-head">
+        <span class="th">Date</span>
+        <span class="th">Report Title</span>
+        <span class="th">Company / Ticker</span>
+        <span class="th">Rating</span>
+        <span class="th">Type</span>
+        <span class="th"></span>
+      </div>
+
+      <ul id="filings-list">
+        <!-- Rows injected by JS -->
+      </ul>
+
+      <div id="no-results">
+        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+            <path d="m8 11h6" />
+          </svg></div>
+        <h3>No reports match your filters</h3>
+        <p>Try adjusting your search or clearing the active filters.</p>
+      </div>
+    </div>
+
+    <!-- About Strip -->
+    <div class="about-strip">
+      <div class="label">About Nexus Research</div>
+      <p>Nexus Research is an independent equity analysis series by Mary Scott, applying a systematic driver-based
+        framework to identify variant views and mispriced risk in U.S. public equities. Each report isolates revenue,
+        demand, margin, and structural drivers, surfaces the key market consensus being challenged, and identifies
+        catalysts with explicit falsification criteria.</p>
+      <p class="disclaimer">All views are personal and for educational purposes only. Nothing in these reports
+        constitutes investment advice. Mary Scott is not a registered financial advisor.</p>
+    </div>
+
+  </div>
+
+  <!-- Document Preview Modal -->
+  <div id="doc-preview-modal" class="doc-modal-overlay" onclick="closeDocModal(event)">
+    <div class="doc-modal-container" onclick="event.stopPropagation()">
+      <div class="doc-modal-header">
+        <div>
+          <span class="series-label" style="color: var(--nx-gold); font-size: 0.75rem;">NEXUS RESEARCH · MEMO
+            PREVIEW</span>
+          <h2 id="modal-doc-title" style="color: #FFFFFF; font-size: 1.35rem; margin: 4px 0 2px 0;"></h2>
+          <div id="modal-doc-meta" style="font-size: 0.825rem; color: rgba(255,255,255,0.7);"></div>
+        </div>
+        <button onclick="closeDocModalDirect()"
+          style="background: none; border: none; color: #FFFFFF; font-size: 1.5rem; cursor: pointer; padding: 4px;">✕</button>
+      </div>
+      <div class="doc-modal-body">
+        <div id="modal-doc-badges" style="display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap;"></div>
+        <div id="modal-doc-summary" style="margin-bottom: 1.5rem; line-height: 1.85;"></div>
+        <div id="modal-doc-tags" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+      </div>
+      <div class="doc-modal-footer">
+        <span style="font-size: 0.85rem; color: #64748b;">Independent Equity Analysis Series</span>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a id="modal-docx-download" href="#" download class="btn-modal-action"
+            style="padding: 0.5rem 1.2rem; background: rgba(11,29,58,0.08); color: #0b1d3a; font-weight: 600; border-radius: 6px; text-decoration: none; font-size: 0.875rem;">
+            📥 Download .DOCX
+          </a>
+          <a id="modal-docx-open" href="#" target="_blank" class="btn-modal-action"
+            style="padding: 0.5rem 1.2rem; background: var(--nx-gold); color: #0b1d3a; font-weight: 700; border-radius: 6px; text-decoration: none; font-size: 0.875rem;">
+            🔍 Preview in Google Docs
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Mary Scott · Nexus Research · raptor8600.github.io/Portfolio-Site</p>
+  </footer>
+
+  <style>
+    /* Modal Styles */
+    .doc-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(11, 29, 58, 0.8);
+      backdrop-filter: blur(6px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .doc-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .doc-modal-container {
+      width: 90%;
+      max-width: 820px;
+      max-height: 85vh;
+      background: #FFFFFF;
+      border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .doc-modal-overlay.active .doc-modal-container {
+      transform: translateY(0);
+    }
+
+    .doc-modal-header {
+      padding: 1.5rem 2rem;
+      background: #0b1d3a;
+      color: #FFFFFF;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .doc-modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      line-height: 1.8;
+      color: #1e293b;
+    }
+
+    .doc-modal-footer {
+      padding: 1rem 2rem;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  </style>
+
+  <script src="reports-data.js"></script>
+  <script>
+    // REPORTS array is loaded from reports-data.js — edit that file to add new reports.
+    const REPORTS = NEXUS_REPORTS;
+
+    // ── STATE ─────────────────────────────────────────────────────────────────
+    let activeFilters = { rating: ["ALL"], format: ["ALL"], year: ["ALL"], type: ["ALL"] };
+    let customDate = { from: "", to: "" };
+    let searchTerm = "";
+    let sortOrder = "date-desc";
+    let openId = null;
+
+    // ── RENDER ────────────────────────────────────────────────────────────────
+    function getYear(dateStr) { return dateStr.slice(0, 4); }
+
+    function matches(r) {
+      if (!activeFilters.rating.includes("ALL") && !activeFilters.rating.includes(r.rating)) return false;
+      if (activeFilters.format && !activeFilters.format.includes("ALL") && !activeFilters.format.includes(r.format)) return false;
+      if (!activeFilters.type.includes("ALL") && !activeFilters.type.includes(r.type)) return false;
+
+      if (!activeFilters.year.includes("ALL")) {
+        let yearMatch = false;
+        const rDateObj = new Date(r.date + "T12:00:00");
+        const today = new Date();
+
+        if (activeFilters.year.includes(getYear(r.date))) {
+          yearMatch = true;
+        }
+        if (activeFilters.year.includes("30D")) {
+          const thirtyDaysAgo = new Date();
+          thirtyDaysAgo.setDate(today.getDate() - 30);
+          if (rDateObj >= thirtyDaysAgo && rDateObj <= today) yearMatch = true;
+        }
+        if (activeFilters.year.includes("6M")) {
+          const sixMonthsAgo = new Date();
+          sixMonthsAgo.setMonth(today.getMonth() - 6);
+          if (rDateObj >= sixMonthsAgo && rDateObj <= today) yearMatch = true;
+        }
+        if (activeFilters.year.includes("1Y")) {
+          const oneYearAgo = new Date();
+          oneYearAgo.setFullYear(today.getFullYear() - 1);
+          if (rDateObj >= oneYearAgo && rDateObj <= today) yearMatch = true;
+        }
+
+        if (activeFilters.year.includes("CUSTOM")) {
+          const rDate = r.date;
+          const from = customDate.from;
+          const to = customDate.to;
+          let inRange = true;
+          if (from && rDate < from) inRange = false;
+          if (to && rDate > to) inRange = false;
+          if ((from || to) && inRange) yearMatch = true;
+        }
+        if (!yearMatch) return false;
+      }
+
+      if (searchTerm) {
+        const hay = [r.title, r.subtitle, r.company, r.ticker, r.sector, ...(r.tags || [])].join(" ").toLowerCase();
+        if (!hay.includes(searchTerm.toLowerCase())) return false;
+      }
+      return true;
+    }
+
+    function sortedReports() {
+      return REPORTS.filter(matches).sort((a, b) => {
+        if (sortOrder === "date-asc") return a.date.localeCompare(b.date);
+        if (sortOrder === "ticker-asc") return a.ticker.localeCompare(b.ticker);
+        return b.date.localeCompare(a.date); // date-desc default
+      });
+    }
+
+    function formatDate(ds) {
+      const d = new Date(ds + "T12:00:00");
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+
+    function ratingClass(r) {
+      if (r === "THESIS CHECK") return "rating-THESIS";
+      if (r === "HOLD/NEUTRAL") return "rating-HOLD";
+      return "rating-" + r;
+    }
+
+    function previewReport(id) {
+      const r = REPORTS.find(item => item.id === id);
+      if (!r) return;
+
+      document.getElementById("modal-doc-title").textContent = r.title;
+      document.getElementById("modal-doc-meta").textContent = `${r.company} (${r.ticker}) · ${r.sector} · ${formatDate(r.date)}`;
+      document.getElementById("modal-doc-summary").innerHTML = `<p style="font-weight:600; color: var(--nx-navy); margin-bottom: 0.75rem;">${r.subtitle}</p><p>${r.summary}</p>`;
+
+      const badgesEl = document.getElementById("modal-doc-badges");
+      badgesEl.innerHTML = `
+        <span class="rating-badge ${ratingClass(r.rating)}">${r.rating}</span>
+        <span class="type-badge">${r.type}</span>
+        <span class="type-badge" style="background: rgba(198,163,107,0.15); color: var(--nx-navy);">Target: ${r.priceTarget}</span>
+        <span class="type-badge" style="background: rgba(198,163,107,0.15); color: var(--nx-navy);">Upside: ${r.upside}</span>
+      `;
+
+      const tagsEl = document.getElementById("modal-doc-tags");
+      tagsEl.innerHTML = (r.tags || []).map(t => `<span class="type-badge" style="background:#f1f5f9; color:#475569;">${t}</span>`).join("");
+
+      const downloadEl = document.getElementById("modal-docx-download");
+      const openEl = document.getElementById("modal-docx-open");
+
+      // Build absolute URL for Google Docs viewer
+      const absoluteUrl = new URL(r.link, window.location.href).href;
+      const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(absoluteUrl)}&embedded=true`;
+
+      downloadEl.href = r.link;
+      downloadEl.setAttribute("download", r.link.split('/').pop());
+      openEl.href = viewerUrl;
+      openEl.target = "_blank";
+      openEl.textContent = "🔍 Preview in Google Docs";
+
+      document.getElementById("doc-preview-modal").classList.add("active");
+    }
+
+    function closeDocModalDirect() {
+      document.getElementById("doc-preview-modal").classList.remove("active");
+    }
+
+    function closeDocModal(e) {
+      if (e.target.id === "doc-preview-modal") {
+        closeDocModalDirect();
+      }
+    }
+
+    function render() {
+      const list = document.getElementById("filings-list");
+      const noResults = document.getElementById("no-results");
+      const countEl = document.getElementById("count-display");
+      const rows = sortedReports();
+
+      countEl.textContent = rows.length;
+      list.innerHTML = "";
+
+      if (rows.length === 0) {
+        noResults.style.display = "block";
+        return;
+      }
+      noResults.style.display = "none";
+
+      rows.forEach(r => {
+        const li = document.createElement("li");
+        li.style.borderBottom = "1px solid var(--nx-rule)";
+
+        // All links open in new tab (Office Viewer URLs for docx, direct URLs for articles)
+        const linkAttr = `href="${r.link}" target="_blank" rel="noopener" onclick="event.stopPropagation()"`;
+
+        li.innerHTML = `
+          <div class="filing-row" data-id="${r.id}" role="button" tabindex="0" aria-expanded="false">
+            <div class="col-date">${formatDate(r.date)}</div>
+            <div class="col-title">
+              <h3>${r.title}</h3>
+              <span class="subtitle">${r.subtitle}</span>
+            </div>
+            <div class="col-ticker">
+              ${r.ticker}
+              <span class="exchange">${r.exchange} · ${r.sector}</span>
+            </div>
+            <div class="col-rating">
+              <span class="rating-badge ${ratingClass(r.rating)}">${r.rating}</span>
+            </div>
+            <div class="col-type">
+              <span class="type-badge">${r.type}</span>
+            </div>
+            <div class="col-action">
+              <a class="view-link" ${linkAttr}>
+                View <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="filing-detail" id="detail-${r.id}">
+            <div class="detail-inner">
+              <p>${r.summary}</p>
+              <div class="detail-meta">
+                <div class="detail-meta-item"><strong>Rating</strong>${r.rating}</div>
+                <div class="detail-meta-item"><strong>Conviction</strong>${r.conviction}</div>
+                <div class="detail-meta-item"><strong>Price Target</strong>${r.priceTarget}</div>
+                <div class="detail-meta-item"><strong>Upside</strong>${r.upside}</div>
+                <div class="detail-meta-item"><strong>Report Date</strong>${formatDate(r.date)}</div>
+                ${r.tags.map(t => `<span class="type-badge" style="align-self:center;">${t}</span>`).join("")}
+              </div>
+            </div>
+          </div>
+        `;
+        list.appendChild(li);
+
+        // Expand/collapse on row click
+        const row = li.querySelector(".filing-row");
+        const detail = li.querySelector(".filing-detail");
+        row.addEventListener("click", () => {
+          const isOpen = detail.classList.contains("open");
+          // Close all
+          document.querySelectorAll(".filing-detail.open").forEach(d => d.classList.remove("open"));
+          document.querySelectorAll(".filing-row[aria-expanded='true']").forEach(ro => ro.setAttribute("aria-expanded", "false"));
+          if (!isOpen) {
+            detail.classList.add("open");
+            row.setAttribute("aria-expanded", "true");
+          }
+        });
+        row.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") row.click(); });
+      });
+    }
+
+    // ── FILTER PILLS ─────────────────────────────────────────────────────────
+    const EXPLANATIONS = {
+      "Deep Dive / Sector Primer": "<strong>Deep Dive / Sector Primer:</strong> Broad mapping of sector landscapes, tracking timelines, or explaining technical mechanics.",
+      "Ecosystem Map": "<strong>Ecosystem Map:</strong> A report tracking supply chains, venture capital flows, or university spin-offs.",
+      "Thematic Note": "<strong>Thematic Note:</strong> Analyses of macro events affecting the sector, such as government subsidies or breakthrough mandates.",
+      "Stock Memo / Quick Pitch": "<strong>Stock Memo / Quick Pitch:</strong> Mini-report analyzing a single stock’s fundamentals, financials, and valuation.",
+      "Catalyst Tracker": "<strong>Catalyst Tracker:</strong> A short update focused strictly on upcoming milestones, earnings events, or pilot programs.",
+      "Post-Mortem / Re-Underwrite": "<strong>Post-Mortem / Re-Underwrite:</strong> A detailed evaluation of why a stock dropped significantly or missed key targets.",
+      "Moonshot Assessment": "<strong>Moonshot Assessment:</strong> Specialized evaluations of pre-revenue companies representing pure asymmetric upside.",
+      "BUY": "<strong>BUY:</strong> High-conviction long idea with significant mispriced upside.",
+      "HOLD/NEUTRAL": "<strong>HOLD/NEUTRAL:</strong> Neutral stance due to full valuation, maturing drivers, or lack of margin of safety.",
+      "WATCH": "<strong>WATCH:</strong> High-quality companies kept on active radar pending catalysts or entry points.",
+      "SELL": "<strong>SELL:</strong> Underperform outlook or structural headwind short idea.",
+      "THESIS CHECK": "<strong>THESIS CHECK:</strong> Re-evaluating core assumptions against incoming event data.",
+      "30D": "<strong>Past 30 Days:</strong> Research published within the last 30 days.",
+      "6M": "<strong>Past 6 Months:</strong> Research published within the last 6 months.",
+      "1Y": "<strong>Past Year:</strong> Research published within the last 12 months.",
+      "CUSTOM": "<strong>Custom Range:</strong> Research published between specified dates."
+    };
+
+    function updateExplanation() {
+      const expEl = document.getElementById("filter-explanation");
+      if (!expEl) return;
+
+      let texts = [];
+      activeFilters.rating.forEach(val => {
+        if (val !== "ALL" && EXPLANATIONS[val]) texts.push(EXPLANATIONS[val]);
+      });
+      activeFilters.year.forEach(val => {
+        if (val !== "ALL" && EXPLANATIONS[val]) texts.push(EXPLANATIONS[val]);
+      });
+      activeFilters.type.forEach(val => {
+        if (val !== "ALL" && EXPLANATIONS[val]) texts.push(EXPLANATIONS[val]);
+      });
+
+      if (texts.length > 0) {
+        expEl.innerHTML = texts.join("<br>");
+        expEl.style.display = "block";
+      } else {
+        expEl.style.display = "none";
+      }
+    }
+
+    document.querySelectorAll(".filter-pill").forEach(pill => {
+      pill.addEventListener("click", () => {
+        const group = pill.dataset.filter;
+        const val = pill.dataset.val;
+
+        let currentGroupFilters = activeFilters[group];
+
+        if (val === "ALL") {
+          currentGroupFilters = ["ALL"];
+        } else {
+          currentGroupFilters = currentGroupFilters.filter(v => v !== "ALL");
+
+          if (group === "year") {
+            const presets = ["30D", "6M", "1Y"];
+            if (presets.includes(val)) {
+              if (currentGroupFilters.includes(val)) {
+                currentGroupFilters = currentGroupFilters.filter(v => v !== val);
+              } else {
+                currentGroupFilters = currentGroupFilters.filter(v => !presets.includes(v));
+                currentGroupFilters.push(val);
+              }
+            } else if (val === "CUSTOM") {
+              if (currentGroupFilters.includes(val)) {
+                currentGroupFilters = currentGroupFilters.filter(v => v !== val);
+              } else {
+                currentGroupFilters.push(val);
+              }
+            }
+          } else {
+            if (currentGroupFilters.includes(val)) {
+              currentGroupFilters = currentGroupFilters.filter(v => v !== val);
+            } else {
+              currentGroupFilters.push(val);
+            }
+          }
+
+          if (currentGroupFilters.length === 0) {
+            currentGroupFilters = ["ALL"];
+          }
+        }
+
+        activeFilters[group] = currentGroupFilters;
+
+        document.querySelectorAll(`.filter-pill[data-filter="${group}"]`).forEach(p => {
+          if (currentGroupFilters.includes(p.dataset.val)) {
+            p.classList.add("active");
+          } else {
+            p.classList.remove("active");
+          }
+        });
+
+        if (group === "year") {
+          const customContainer = document.getElementById("custom-date-container");
+          if (currentGroupFilters.includes("CUSTOM")) {
+            customContainer.style.display = "inline-flex";
+          } else {
+            customContainer.style.display = "none";
+          }
+        }
+
+        render();
+        updateExplanation();
+      });
+    });
+
+    // ── DATE INPUTS ───────────────────────────────────────────────────────────
+    document.getElementById("date-from").addEventListener("change", e => {
+      customDate.from = e.target.value;
+      render();
+    });
+    document.getElementById("date-to").addEventListener("change", e => {
+      customDate.to = e.target.value;
+      render();
+    });
+
+    // ── SEARCH ────────────────────────────────────────────────────────────────
+    document.getElementById("search-input").addEventListener("input", e => {
+      searchTerm = e.target.value.trim();
+      render();
+    });
+
+    // ── SORT ──────────────────────────────────────────────────────────────────
+    document.getElementById("sort-select").addEventListener("change", e => {
+      sortOrder = e.target.value;
+      render();
+    });
+
+    // ── INIT ──────────────────────────────────────────────────────────────────
+    render();
+    updateExplanation();
+    lucide.createIcons();
+  </script>
+  <script src="script.js" defer></script>
+</body>
+
+</html>
