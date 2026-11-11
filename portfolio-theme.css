@@ -1,0 +1,1266 @@
+/* ==========================================================================
+   PORTFOLIO THEME: Silky Champagne Gold + Midnight Navy Silk
+   Scoped theme stylesheet for index.html, recruiters.html, & nexus.html
+   ========================================================================== */
+
+:root {
+  --gold: #D4AF37;
+  --gold-light: #E5C483;
+  --gold-floss: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.2) 20%, rgba(243, 229, 171, 0.85) 50%, rgba(212, 175, 55, 0.2) 80%, transparent 100%);
+
+  --navy-bg: #0C1626;
+  --navy-surface: #101E34;
+  --whisper-glass: rgba(16, 30, 52, 0.65);
+  --whisper-border: rgba(255, 255, 255, 0.1);
+  --whisper-border-gold: rgba(212, 175, 55, 0.35);
+
+  --text-white: #FFFFFF;
+  --text-sub: #94A3B8;
+  --text-body: #E2E8F0;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+* {
+  overflow-wrap: break-word;
+}
+
+body.portfolio-dark {
+  background-color: var(--navy-bg) !important;
+  color: var(--text-white) !important;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  position: relative;
+}
+
+body.portfolio-dark::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image:
+    radial-gradient(ellipse 75% 50% at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 55%),
+    linear-gradient(180deg, #0C1626 0%, #060D18 100%);
+  pointer-events: none;
+  z-index: -2;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Layered Background Shapes (Subtle Parallax / Depth Effect) */
+body.portfolio-dark .bg-accent-layer {
+  display: block !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+body.portfolio-dark .blob-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 45%, transparent 70%);
+  transform: rotate(-15deg) translateZ(0);
+  border-radius: 50%;
+  will-change: transform;
+}
+
+body.portfolio-dark .blob-2 {
+  position: absolute;
+  top: 40%;
+  left: -10%;
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle at center, rgba(20, 42, 74, 0.45) 0%, rgba(12, 22, 38, 0.15) 50%, transparent 70%);
+  transform: rotate(25deg) translateZ(0);
+  border-radius: 50%;
+  will-change: transform;
+}
+
+/* Layered Geometric Angular Slash (Old Theme Feature) */
+body.portfolio-dark .hero-background {
+  display: block !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(20, 38, 66, 0.3) 50%, transparent 100%);
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Global Section Overrides */
+body.portfolio-dark section {
+  background-color: transparent !important;
+  color: var(--text-white) !important;
+}
+
+body.portfolio-dark h1,
+body.portfolio-dark h2,
+body.portfolio-dark h3,
+body.portfolio-dark h4 {
+  color: #FFFFFF !important;
+  font-family: var(--font-heading);
+}
+
+body.portfolio-dark p {
+  color: var(--text-sub);
+}
+
+/* ── NAVBAR STYLING ── */
+body.portfolio-dark .navbar {
+  background-color: rgba(12, 22, 38, 0.96) !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.22) !important;
+  padding: 1.1rem 0 !important;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+body.portfolio-dark .logo {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+body.portfolio-dark .logo span {
+  color: var(--gold) !important;
+}
+
+body.portfolio-dark .nav-links li a:not(.nav-btn-research):not(.nav-btn-recruiters):not(.nav-btn-resume) {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85) !important;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.25s ease;
+}
+
+body.portfolio-dark .nav-links li a:not(.nav-btn-research):not(.nav-btn-recruiters):not(.nav-btn-resume)::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 1.5px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--gold);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.portfolio-dark .nav-links li a:not(.nav-btn-research):not(.nav-btn-recruiters):not(.nav-btn-resume):hover::after,
+body.portfolio-dark .nav-links li a:not(.nav-btn-research):not(.nav-btn-recruiters):not(.nav-btn-resume).active::after {
+  width: 100%;
+}
+
+body.portfolio-dark .nav-links li a:not(.nav-btn-research):not(.nav-btn-recruiters):not(.nav-btn-resume):hover {
+  color: var(--gold-light) !important;
+}
+
+/* Nav Action Buttons Group (Research, Recruiters, Resume) */
+body.portfolio-dark .nav-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: 0.5rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+body.portfolio-dark .nav-btn-research {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 6px;
+  background-color: rgba(212, 175, 55, 0.14);
+  color: #FFFFFF !important;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+body.portfolio-dark .nav-btn-research:hover,
+body.portfolio-dark .nav-btn-research.active {
+  background-color: var(--gold) !important;
+  color: #0C1626 !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.35);
+}
+
+body.portfolio-dark .nav-btn-recruiters {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  color: var(--gold) !important;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+body.portfolio-dark .nav-btn-recruiters:hover,
+body.portfolio-dark .nav-btn-recruiters.active {
+  background-color: rgba(212, 175, 55, 0.18) !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+}
+
+body.portfolio-dark .nav-btn-resume {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.42rem 1.1rem;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  background-color: var(--gold);
+  color: #0C1626 !important;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700 !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+  text-decoration: none;
+}
+
+body.portfolio-dark .nav-btn-resume:hover {
+  background-color: var(--gold-light);
+  border-color: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* ── HERO SECTION & OPTION B CIRCULAR GOLD RING MEDALLION ── */
+body.portfolio-dark .hero {
+  background: transparent !important;
+  padding-top: 140px;
+  padding-bottom: 70px;
+}
+
+body.portfolio-dark .hero h1 {
+  font-size: 3.4rem;
+  line-height: 1.15;
+  color: #FFFFFF !important;
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+body.portfolio-dark .hero .highlight {
+  color: var(--gold-light) !important;
+  font-style: italic;
+}
+
+body.portfolio-dark .hero p {
+  color: var(--text-sub) !important;
+  font-size: 1.08rem;
+}
+
+body.portfolio-dark .profile-photo-placeholder {
+  position: relative;
+  width: 290px;
+  height: 290px;
+  margin: 0 auto;
+  border-radius: 50% !important;
+  padding: 6px !important;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.85) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(212, 175, 55, 0.45) 100%) !important;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3) !important;
+  border: none !important;
+}
+
+body.portfolio-dark .profile-photo-placeholder img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+
+/* ── GOLDEN FLOSS HAIRLINE DIVIDER ── */
+.hairline-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3.5rem 0;
+}
+
+.hairline-divider::before,
+.hairline-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--gold-floss);
+}
+
+.hairline-diamond {
+  font-size: 0.55rem;
+  color: var(--gold);
+  padding: 0 18px;
+  opacity: 0.8;
+}
+
+/* ── SECTION HEADERS ── */
+body.portfolio-dark .section-header h2 {
+  font-size: 2.2rem;
+  color: #FFFFFF !important;
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-heading);
+}
+
+body.portfolio-dark .section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+body.portfolio-dark .section-header h2:hover::after {
+  width: 100%;
+}
+
+body.portfolio-dark .section-header .line {
+  display: none;
+}
+
+/* ── BORDERLESS ABOUT ME SECTION ── */
+body.portfolio-dark .about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 3rem;
+}
+
+body.portfolio-dark .about-text p {
+  color: var(--text-sub) !important;
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+body.portfolio-dark .education-block {
+  background: rgba(14, 26, 45, 0.94) !important;
+  border-radius: 12px;
+  border: 1px solid var(--whisper-border) !important;
+  border-left: 4px solid var(--gold) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  padding: 1.6rem !important;
+}
+
+body.portfolio-dark .education-block h4 {
+  color: #FFFFFF !important;
+}
+
+body.portfolio-dark .university {
+  color: var(--gold) !important;
+}
+
+body.portfolio-dark .achievements li {
+  color: var(--text-body) !important;
+}
+
+body.portfolio-dark .achievements li::before {
+  color: var(--gold) !important;
+}
+
+body.portfolio-dark .skills-card {
+  background: rgba(14, 26, 45, 0.94) !important;
+  border-radius: 14px;
+  border: 1px solid var(--whisper-border) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  padding: 2.2rem !important;
+}
+
+body.portfolio-dark .skill-group h4 {
+  color: var(--gold) !important;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+body.portfolio-dark .tag {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  transform: translateZ(0);
+}
+
+body.portfolio-dark .tag:hover {
+  background-color: rgba(212, 175, 55, 0.2) !important;
+  border-color: rgba(212, 175, 55, 0.5) !important;
+  color: var(--gold-light) !important;
+  transform: translateY(-1px) translateZ(0);
+}
+
+/* ── WHISPERING GLASS CARDS & HOVER ── */
+body.portfolio-dark .experience-card,
+body.portfolio-dark .card {
+  position: relative;
+  background-color: rgba(14, 26, 45, 0.92) !important;
+  border: 1px solid var(--whisper-border) !important;
+  border-radius: 16px;
+  padding: 2.2rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+body.portfolio-dark .experience-card::before,
+body.portfolio-dark .card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.5) 50%, transparent 100%);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+body.portfolio-dark .experience-card::after,
+body.portfolio-dark .card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow:
+    0 20px 45px -8px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(212, 175, 55, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+body.portfolio-dark .experience-card:hover,
+body.portfolio-dark .card:hover {
+  background-color: rgba(20, 36, 62, 0.95) !important;
+  transform: translateY(-3px) translateZ(0);
+  border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+body.portfolio-dark .experience-card:hover::after,
+body.portfolio-dark .card:hover::after {
+  opacity: 1;
+}
+
+body.portfolio-dark .exp-header h3,
+body.portfolio-dark .card h2,
+body.portfolio-dark .card h3 {
+  color: #FFFFFF !important;
+  font-family: var(--font-heading);
+}
+
+body.portfolio-dark .exp-header .company {
+  color: var(--gold) !important;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+body.portfolio-dark .exp-meta {
+  color: var(--text-sub) !important;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+body.portfolio-dark .social-link {
+  color: var(--gold-light, #E5C483) !important;
+}
+
+body.portfolio-dark a.social-link:hover {
+  color: var(--gold, #D4AF37) !important;
+}
+
+body.portfolio-dark .exp-body p,
+body.portfolio-dark .card p {
+  color: var(--text-body) !important;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+body.portfolio-dark .exp-body ul,
+body.portfolio-dark .bullets {
+  color: var(--text-body) !important;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+body.portfolio-dark .exp-body ul li strong,
+body.portfolio-dark .bullets li strong {
+  color: #FFFFFF !important;
+}
+
+body.portfolio-dark .tech-stack span {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(212, 175, 55, 0.2) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+}
+
+/* ── CAROUSEL ARROWS & DOTS ── */
+.carousel-wrapper {
+  position: relative;
+}
+
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(12, 22, 38, 0.92);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+}
+
+.carousel-nav-btn:hover {
+  background: var(--gold);
+  color: #0C1626;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.4);
+}
+
+.carousel-nav-prev {
+  left: -20px;
+}
+
+.carousel-nav-next {
+  right: -20px;
+}
+
+body.portfolio-dark .carousel-dots .dot {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid var(--gold) !important;
+}
+
+body.portfolio-dark .carousel-dots .dot.active {
+  background-color: var(--gold) !important;
+  border-color: var(--gold) !important;
+  width: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+/* ── ULTRA-SMOOTH EXPANDABLE COLLAPSIBLE CONTAINER ── */
+.collapsible-exp-container {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, margin-top 0.4s ease;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.collapsible-exp-container.expanded {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+
+.collapsible-exp-inner {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.view-more-exp-wrap {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.btn-view-more {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 0.75rem 1.8rem;
+  border-radius: 25px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.btn-view-more:hover {
+  background: var(--gold);
+  color: #0C1626;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Fix Expand Details & Preview button visibility on dark theme */
+body.portfolio-dark .card-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  padding: 0.5rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #FFFFFF !important;
+  background: rgba(212, 175, 55, 0.14) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+body.portfolio-dark .card-toggle-btn:hover {
+  background: var(--gold) !important;
+  color: #0C1626 !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.35) !important;
+}
+
+body.portfolio-dark .card-toggle-btn svg {
+  stroke: currentColor;
+}
+
+/* ── SUBTLY SEPARATED GET IN TOUCH CONTACT SECTION ── */
+body.portfolio-dark #contact {
+  position: relative;
+  background: rgba(14, 26, 45, 0.94) !important;
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+  border-radius: 20px;
+  padding: 3.5rem 2.5rem !important;
+  margin: 4rem 0 2rem !important;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+body.portfolio-dark #contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.6) 50%, transparent 100%);
+}
+
+body.portfolio-dark .contact-header h2 {
+  font-family: var(--font-heading);
+  color: #FFFFFF !important;
+  font-size: 2.3rem;
+}
+
+body.portfolio-dark .contact-header p {
+  color: var(--text-sub) !important;
+  font-size: 1.02rem;
+  max-width: 540px;
+  margin: 0.5rem auto 0;
+}
+
+/* ==========================================================================
+   RECRUITERS.HTML THEME OVERRIDES (Silky Champagne Gold + Midnight Silk)
+   ========================================================================== */
+body.portfolio-dark.recruiter-theme {
+  --recruiter-bg: #0C1626;
+  --recruiter-card: rgba(14, 26, 45, 0.94);
+  --recruiter-border: rgba(255, 255, 255, 0.12);
+  --recruiter-text: #FFFFFF;
+  --recruiter-text-light: #94A3B8;
+  --recruiter-accent: #D4AF37;
+}
+
+/* Recruiter Page Custom Diagonal Accent (Top-Left Center starting at ~35% down to Bottom-Right) */
+body.portfolio-dark.recruiter-theme .recruiter-hero-background {
+  display: block !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(20, 38, 66, 0.35) 60%, transparent 100%);
+  clip-path: polygon(35% 0%, 100% 0%, 100% 100%, 70% 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.portfolio-dark.recruiter-theme .recruiter-geometric {
+  position: absolute;
+  width: 35vw;
+  height: 150vh;
+  background-color: #0A2342;
+  opacity: 0.06;
+  top: -25%;
+  left: 32%;
+  transform: rotate(-15deg) skewY(5deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.portfolio-dark.recruiter-theme .hero-banner {
+  background: rgba(14, 26, 45, 0.94) !important;
+  border: 1px solid var(--whisper-border-gold) !important;
+  border-radius: 20px !important;
+  padding: 3rem 2rem !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.portfolio-dark.recruiter-theme .hero-banner h1 {
+  font-family: var(--font-heading) !important;
+  color: #FFFFFF !important;
+  font-size: 3rem !important;
+}
+
+body.portfolio-dark.recruiter-theme .hero-banner p {
+  color: var(--text-sub) !important;
+  font-size: 1.05rem !important;
+}
+
+body.portfolio-dark.recruiter-theme .badge {
+  background: rgba(212, 175, 55, 0.15) !important;
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  color: var(--gold) !important;
+  font-family: var(--font-mono) !important;
+}
+
+body.portfolio-dark.recruiter-theme .side-column {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+body.portfolio-dark.recruiter-theme .card {
+  background: rgba(14, 26, 45, 0.96) !important;
+  border: 1px solid var(--whisper-border-gold) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+  position: relative !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+}
+
+body.portfolio-dark.recruiter-theme .skill-pill {
+  background: rgba(212, 175, 55, 0.25) !important;
+  border: 1px solid #D4AF37 !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-mono), monospace !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  padding: 6px 14px !important;
+  border-radius: 50px !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  margin-bottom: 6px !important;
+}
+
+body.portfolio-dark.recruiter-theme .skill-pill:hover {
+  background: #D4AF37 !important;
+  color: #0C1626 !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5) !important;
+}
+
+body.portfolio-dark.recruiter-theme .section-title {
+  color: var(--gold) !important;
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.15em !important;
+}
+
+body.portfolio-dark.recruiter-theme .tag {
+  background: rgba(212, 175, 55, 0.18) !important;
+  border: 1px solid rgba(212, 175, 55, 0.5) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-mono) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  padding: 6px 14px !important;
+  border-radius: 50px !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  margin-bottom: 6px !important;
+}
+
+body.portfolio-dark.recruiter-theme .tag:hover {
+  background: var(--gold) !important;
+  color: #0C1626 !important;
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4) !important;
+}
+
+body.portfolio-dark.recruiter-theme .project-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+body.portfolio-dark.recruiter-theme .project-link {
+  color: var(--gold) !important;
+  border-color: rgba(212, 175, 55, 0.35) !important;
+  font-family: var(--font-mono) !important;
+}
+
+body.portfolio-dark.recruiter-theme .project-link:hover {
+  background: var(--gold) !important;
+  color: #0C1626 !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3) !important;
+}
+
+body.portfolio-dark.recruiter-theme .contact-box {
+  background: var(--whisper-glass) !important;
+  border: 1px solid var(--whisper-border-gold) !important;
+  border-radius: 16px !important;
+  padding: 2rem !important;
+}
+
+body.portfolio-dark.recruiter-theme .btn-gold-fill {
+  background: var(--gold) !important;
+  color: #0C1626 !important;
+  font-family: var(--font-mono) !important;
+  font-weight: 700 !important;
+}
+
+body.portfolio-dark.recruiter-theme .btn-gold-fill:hover {
+  background: var(--gold-light) !important;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4) !important;
+}
+
+body.portfolio-dark.recruiter-theme .btn-white-outline {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #FFFFFF !important;
+  font-family: var(--font-mono) !important;
+}
+
+body.portfolio-dark.recruiter-theme .btn-white-outline:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+body.portfolio-dark.recruiter-theme .targeting-line {
+  background: rgba(212, 175, 55, 0.12) !important;
+  border-left: 3px solid var(--gold) !important;
+  color: #FFFFFF !important;
+  font-weight: 500 !important;
+  font-size: 0.96rem !important;
+  line-height: 1.6 !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 18px 20px !important;
+}
+
+/* ==========================================================================
+   NEXUS.HTML ARCHITECTURAL GLASS HERO THEME (Mirroring index.html structure)
+   ========================================================================== */
+
+/* VERSION 1: LIGHT ARCHITECTURAL CITY GLASS TOWER (Default - High Performance) */
+body.portfolio-dark.nexus-theme {
+  --nx-bg: #E2EEF8;
+  --nx-paper: #FFFFFF;
+  --nx-ink: #0F172A;
+  --nx-ink-mid: #334155;
+  --nx-ink-light: #64748B;
+  --nx-rule: rgba(148, 163, 184, 0.3);
+  --nx-gold: #D4AF37;
+  --nx-gold-light: rgba(212, 175, 55, 0.14);
+
+  background-color: #E2EEF8 !important;
+  color: #0A192F !important;
+}
+
+body.portfolio-dark.nexus-theme::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Ultra-subtle, nearly imperceptible glassy background layers (z-index: -10) */
+  background-image: 
+    /* Soft Specular Sheen Streak */
+    linear-gradient(125deg, transparent 42%, rgba(255, 255, 255, 0.25) 45%, rgba(255, 255, 255, 0.4) 47%, rgba(255, 255, 255, 0.05) 50%, transparent 54%),
+    /* Imperceptible Vertical Glass Tower Column Shape */
+    linear-gradient(105deg, 
+      transparent 0%, 
+      transparent 28%, 
+      rgba(56, 189, 248, 0.08) 28.1%, 
+      rgba(186, 230, 253, 0.12) 28.5%, 
+      rgba(14, 165, 233, 0.04) 55%, 
+      rgba(186, 230, 253, 0.1) 74.5%, 
+      rgba(56, 189, 248, 0.08) 75%, 
+      transparent 75.1%, 
+      transparent 100%
+    ),
+    /* Subtle Ambient Glows */
+    radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.1) 0%, rgba(186, 230, 253, 0.02) 50%, transparent 70%),
+    radial-gradient(circle at 15% 85%, rgba(14, 165, 233, 0.08) 0%, rgba(56, 189, 248, 0.02) 50%, transparent 70%),
+    /* Base Soft Sky Ice Gradient */
+    linear-gradient(180deg, #DCEAF7 0%, #EBF3FA 50%, #D4E5F5 100%) !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: -10 !important;
+}
+
+/* VERSION 2: DARK ARCHITECTURAL CITY GLASS TOWER (Variant - High Performance) */
+body.portfolio-dark.nexus-theme.nexus-dark-ice {
+  --nx-bg: #07111F;
+  --nx-paper: #0E1D32;
+  --nx-ink: #F1F5F9;
+  --nx-ink-mid: #94A3B8;
+  --nx-ink-light: #64748B;
+  --nx-rule: rgba(56, 189, 248, 0.2);
+
+  background-color: #07111F !important;
+  color: #F1F5F9 !important;
+}
+
+body.portfolio-dark.nexus-theme.nexus-dark-ice::before {
+  background-image: 
+    /* Soft Specular Sheen Streak */
+    linear-gradient(125deg, transparent 40%, rgba(56, 189, 248, 0.08) 44%, rgba(186, 230, 253, 0.15) 47%, rgba(56, 189, 248, 0.03) 50%, transparent 54%),
+    /* Imperceptible Vertical Glass Tower Column Shape */
+    linear-gradient(105deg, 
+      transparent 0%, 
+      transparent 28%, 
+      rgba(56, 189, 248, 0.1) 28.1%, 
+      rgba(14, 116, 144, 0.08) 28.5%, 
+      rgba(15, 23, 42, 0.3) 55%, 
+      rgba(14, 116, 144, 0.08) 74.5%, 
+      rgba(56, 189, 248, 0.1) 75%, 
+      transparent 75.1%, 
+      transparent 100%
+    ),
+    /* Subtle Ambient Glows */
+    radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.12) 0%, rgba(14, 165, 233, 0.03) 50%, transparent 70%),
+    radial-gradient(circle at 15% 85%, rgba(14, 116, 144, 0.12) 0%, rgba(56, 189, 248, 0.02) 50%, transparent 70%),
+    /* Base Deep Night City Sky Gradient */
+    linear-gradient(180deg, #07101E 0%, #0C1A2E 50%, #050B16 100%) !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: -10 !important;
+}
+
+/* ── MASTHEAD & BRANDING (Gold Theme Polish) ── */
+body.portfolio-dark.nexus-theme .masthead {
+  background: #0E1B2E !important;
+  border-radius: 16px !important;
+  padding: 36px 40px !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  box-shadow: 0 15px 35px rgba(12, 22, 38, 0.15) !important;
+  margin-bottom: 24px;
+}
+
+body.portfolio-dark.nexus-theme .masthead h1,
+body.portfolio-dark.nexus-theme .brand-block h1 {
+  color: var(--gold) !important;
+  font-family: var(--font-heading) !important;
+  font-size: 2.8rem !important;
+}
+
+body.portfolio-dark.nexus-theme .masthead .tagline {
+  color: #CBD5E1 !important;
+}
+
+body.portfolio-dark.nexus-theme .masthead .series-label,
+body.portfolio-dark.nexus-theme .brand-block .series-label {
+  color: #E5C483 !important;
+  letter-spacing: 0.18em !important;
+  font-weight: 700 !important;
+}
+
+body.portfolio-dark.nexus-theme .masthead-meta {
+  color: #CBD5E1 !important;
+}
+
+body.portfolio-dark.nexus-theme .masthead-meta strong {
+  color: var(--gold) !important;
+}
+
+/* Page / Cards Container */
+body.portfolio-dark.nexus-theme .controls-sticky,
+body.portfolio-dark.nexus-theme .table-wrap,
+body.portfolio-dark.nexus-theme .card,
+body.portfolio-dark.nexus-theme .filing-card,
+body.portfolio-dark.nexus-theme .about-strip {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(12, 27, 46, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(12, 27, 46, 0.04) !important;
+}
+
+/* Table Header (Matching Dark Institutional Blue Hero) */
+body.portfolio-dark.nexus-theme .table-head {
+  background: #0E1B2E !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+  padding: 12px 20px !important;
+}
+
+body.portfolio-dark.nexus-theme .table-head .th,
+body.portfolio-dark.nexus-theme .table-head span {
+  color: var(--gold) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+}
+
+/* Headings & Report Titles inside Cards / Rows (Deep Ink Navy for 100% Readability) */
+body.portfolio-dark.nexus-theme .filing-row h3,
+body.portfolio-dark.nexus-theme .report-title,
+body.portfolio-dark.nexus-theme .col-title h3,
+body.portfolio-dark.nexus-theme .card h2,
+body.portfolio-dark.nexus-theme .card h3,
+body.portfolio-dark.nexus-theme .table-wrap h3 {
+  color: #0A192F !important;
+  font-family: var(--font-heading) !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+}
+
+body.portfolio-dark.nexus-theme .company-ticker,
+body.portfolio-dark.nexus-theme .col-company,
+body.portfolio-dark.nexus-theme .col-date {
+  color: #475569 !important;
+}
+
+body.portfolio-dark.nexus-theme .filing-row:hover {
+  background: #F8FAFC !important;
+}
+
+body.portfolio-dark.nexus-theme .search-wrap input,
+body.portfolio-dark.nexus-theme .search-box input {
+  background: #F8FAFC !important;
+  border: 1px solid rgba(12, 27, 46, 0.14) !important;
+  color: #0A192F !important;
+}
+
+body.portfolio-dark.nexus-theme .filter-btn,
+body.portfolio-dark.nexus-theme .pill {
+  background: #F8FAFC !important;
+  border: 1px solid rgba(12, 27, 46, 0.14) !important;
+  color: #0A192F !important;
+}
+
+body.portfolio-dark.nexus-theme .filter-btn.active,
+body.portfolio-dark.nexus-theme .pill.active {
+  background: #0C1626 !important;
+  color: #FFFFFF !important;
+  border-color: #0C1626 !important;
+}
+
+/* About Nexus Research Callout Box (Exact match to reference image with vertical gold bar) */
+body.portfolio-dark.nexus-theme .about-strip {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(12, 27, 46, 0.12) !important;
+  border-left: 4px solid var(--gold) !important;
+  border-radius: 0 12px 12px 0 !important;
+  padding: 28px 32px !important;
+  margin-top: 40px !important;
+  box-shadow: 0 4px 20px rgba(12, 27, 46, 0.04) !important;
+}
+
+body.portfolio-dark.nexus-theme .about-strip .label {
+  font-family: var(--font-mono) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--gold) !important;
+  margin-bottom: 10px !important;
+  display: block;
+}
+
+body.portfolio-dark.nexus-theme .about-strip p {
+  color: #334155 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.7 !important;
+}
+
+body.portfolio-dark.nexus-theme .about-strip .disclaimer {
+  margin-top: 14px !important;
+  font-size: 0.82rem !important;
+  color: #64748B !important;
+  font-style: italic !important;
+}
+
+/* ── OVERFLOW CONTAINMENT & PROJECT LINKS ── */
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+body.portfolio-dark .bg-accent-layer {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+body.portfolio-dark .bg-light,
+body.portfolio-dark section.bg-light {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+body.portfolio-dark .project-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+body.portfolio-dark .project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+body.portfolio-dark .project-link.link-github {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #FFFFFF !important;
+}
+
+body.portfolio-dark .project-link.link-github:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #FFFFFF !important;
+}
+
+body.portfolio-dark .project-link.link-live {
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: var(--gold-light) !important;
+}
+
+body.portfolio-dark .project-link.link-live:hover {
+  background: var(--gold) !important;
+  color: #0C1626 !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+}
+
+/* ── MOBILE RESPONSIVE RULES ── */
+@media (max-width: 1080px) {
+  body.portfolio-dark .menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.16) !important;
+    border: 1px solid rgba(212, 175, 55, 0.45) !important;
+    border-radius: 8px !important;
+    color: #FFFFFF !important;
+    padding: 8px !important;
+    width: 44px !important;
+    height: 44px !important;
+    cursor: pointer !important;
+    z-index: 2000000 !important;
+    transition: all 0.25s ease !important;
+  }
+
+  body.portfolio-dark .menu-toggle svg {
+    stroke: var(--gold) !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+
+  body.portfolio-dark .menu-toggle:hover,
+  body.portfolio-dark .menu-toggle:focus {
+    background: rgba(212, 175, 55, 0.3) !important;
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4) !important;
+  }
+
+  body.portfolio-dark .nav-links:not(.active) {
+    display: none !important;
+  }
+
+  body.portfolio-dark .nav-links.active {
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    background-color: rgba(12, 22, 38, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    padding: 5rem 2rem 2rem 2rem !important;
+    gap: 1.5rem !important;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5) !important;
+    z-index: 999999 !important;
+    overflow-y: auto;
+  }
+
+  body.portfolio-dark .nav-btn-group {
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    width: 100%;
+  }
+
+  .carousel-nav-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  body.portfolio-dark .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  body.portfolio-dark .hero-background {
+    display: none !important;
+  }
+
+  body.portfolio-dark .exp-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  body.portfolio-dark .exp-meta {
+    text-align: left !important;
+    width: 100% !important;
+  }
+}
